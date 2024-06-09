@@ -1,7 +1,6 @@
 services:
   postgres:
     image: postgres:latest
-    container_name: postgres_go_api
     ports:
       - 5432:5432
     environment:

@@ -57,19 +57,6 @@ func createUserTable() {
     if (err != nil) {
         log.Fatal(err.Error())
     }
-
-    query = `CREATE TABLE IF NOT EXISTS "userKafka" (
-        id SERIAL PRIMARY KEY,
-        name VARCHAR(100) NOT NULL,
-        age INT NOT NULL,
-        money NUMERIC(10, 2) NOT NULL,
-        created_at TIMESTAMP DEFAULT NOW()
-    )`
-
-    _, err = db.Exec(query)
-    if (err != nil) {
-        log.Fatal(err.Error())
-    }
 }
 
 func setUpKafka() {

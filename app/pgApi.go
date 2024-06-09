@@ -3,11 +3,10 @@ package main
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"net/http"
+	"strconv"
 
 	"github.com/gin-gonic/gin"
-	"github.com/google/uuid"
 	"github.com/segmentio/kafka-go"
 )
 
@@ -81,7 +80,7 @@ func postUserPG(c *gin.Context) {
     }
 
     msg := kafka.Message{
-        Key:   []byte("key"+fmt.Sprint(uuid.New())),
+        Key:   []byte(strconv.Itoa(res.Id)),
         Value: payload,
     }
     err = kafkaWriter.WriteMessages(context.Background(), msg)
